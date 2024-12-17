@@ -35,14 +35,47 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 **Procedure**
 
 /* write all the steps invloved */
+```
+```
+Step1: Define the specifications and initialize the design. 
+Step2: Declare the name of the entity and architecture by using VHDL source code. 
+Step3: Write the source code in VERILOG. 
+Step4: Check the syntax and debug the errors if found, obtain the synthesis  report. 
+Step5: Verify the output by simulating the source code. 
+Step6: Write all possible combinations of input using the test bench. 
+Step7: Obtain the place and route report. 
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by:VEMBARASI.A.R RegisterNumber:24900729
+```
+```
+module ff(j,k,clk,q,qbar);
+input j,k,clk;
+output reg q,qbar;
+initial 
+begin
+q=1'b0;
+q=1'b1;
+end 
+
+always @(posedge clk)
+begin 
+q<=(j&~q)|(~k&q);
+qbar<=~q;
+end
+endmodule
+
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
+![Screenshot (108)](https://github.com/user-attachments/assets/097e5cb1-eaf2-43d9-ad4e-56f5e408c1c3)
+
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![Screenshot (109)](https://github.com/user-attachments/assets/05916172-b346-4006-bcdd-50cbc77a3b32)
+
 
 **RESULTS**
+Thus the OUTPUT’s of Flip Flops are verified by synthesizing and simulating the VERILOG code.
