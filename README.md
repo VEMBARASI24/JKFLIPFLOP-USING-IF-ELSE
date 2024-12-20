@@ -50,31 +50,35 @@ Step7: Obtain the place and route report.
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by:VEMBARASI.A.R RegisterNumber:24900729
 ```
 ```
-module ff(j,k,clk,q,qbar);
-input j,k,clk;
-output reg q,qbar;
-initial 
-begin
-q=1'b0;
-q=1'b1;
-end 
+module ff(j, k, clk, rst, q);
+  input j, k, clk, rst;
+  output reg q;
+  always @(posedge clk or posedge rst) begin
+    if (rst)
+      q <= 0; // Reset the flip-flop
+    else if (j == 0 && k == 0)
+      q <= q; // No change
+    else if (j == 0 && k == 1)
+      q <= 0; // Reset
+    else if (j == 1 && k == 0)
+      q <= 1; // Set
+    else if (j == 1 && k == 1)
+      q <= ~q; // Toggle
+  end
+  endmodule
 
-always @(posedge clk)
-begin 
-q<=(j&~q)|(~k&q);
-qbar<=~q;
-end
-endmodule
 
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
-![Screenshot (108)](https://github.com/user-attachments/assets/097e5cb1-eaf2-43d9-ad4e-56f5e408c1c3)
+![Screenshot (122)](https://github.com/user-attachments/assets/fa24700d-2a88-4981-b74f-573e2f8989ff)
+
 
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-![Screenshot (109)](https://github.com/user-attachments/assets/05916172-b346-4006-bcdd-50cbc77a3b32)
+![Screenshot (123)](https://github.com/user-attachments/assets/797b504f-8397-4503-b474-6e0885f43f3b)
+
 
 
 **RESULTS**
